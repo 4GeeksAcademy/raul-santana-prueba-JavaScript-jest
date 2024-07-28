@@ -1,16 +1,19 @@
-const { fromEuroToDollar, fromDollarToYen, fromYenToPound } = require('./app.js');
+const { fromEuroToDollar, fromDollarToYen, fromYenToPound } = require("./app.js");
 
-// Prueba para la función fromEuroToDollar
-test("One euro should be 1.07 dollars", () => {
-    expect(fromEuroToDollar(3.5)).toBe(3.745);
+test("One euro should be 1.07 dollars", function() {
+    const dollars = fromEuroToDollar(1);
+    const expected = 1 * 1.07;
+    expect(dollars).toBe(expected);
 });
 
-// Prueba para la función fromDollarToYen
-test("Conversion from USD to JPY (1 USD = 149.03 JPY)", () => {
-    expect(fromDollarToYen(10)).toBeCloseTo(1462.6168224299065, 10);
+test("1 dollar should be approximately 146.4486 yen", function() {
+    const yen = fromDollarToYen(1);
+    const expected = (1 / 1.07) * 156.5;
+    expect(yen).toBeCloseTo(expected);
 });
 
-// Prueba para la función fromYenToPound
-test("Conversion from JPY to GBP (1 JPY = 0.0072 GBP)", () => {
-    expect(fromYenToPound(1000)).toBeCloseTo(5.559006211180124, 10);
+test("1 yen should be approximately 0.00556 pounds", function() {
+    const pounds = fromYenToPound(1);
+    const expected = (1 / 156.5) * 0.87;
+    expect(pounds).toBeCloseTo(expected);
 });

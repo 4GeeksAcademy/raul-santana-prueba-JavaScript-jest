@@ -1,26 +1,22 @@
-// Función para convertir euros a dólares
+// One euro is:
+let oneEuroIs = {
+    "JPY": 156.5, // japan yen
+    "USD": 1.07, // us dollar
+    "GBP": 0.87, // british pound
+}
+
 const fromEuroToDollar = function(valueInEuro) {
-    // Convertimos el valor a dólares
     let valueInDollar = valueInEuro * oneEuroIs.USD;
-    // Retornamos el valor en dólares
     return valueInDollar;
 }
 
-// Función para convertir dólares a yenes
 const fromDollarToYen = function(valueInDollar) {
-    // Convertimos dólares a euros primero
-    let valueInEuro = valueInDollar / oneEuroIs.USD;
-    // Convertimos euros a yenes
-    let valueInYen = valueInEuro * oneEuroIs.JPY;
+    let valueInYen = valueInDollar * (oneEuroIs.JPY / oneEuroIs.USD);
     return valueInYen;
 }
 
-// Función para convertir yenes a libras
 const fromYenToPound = function(valueInYen) {
-    // Convertimos yenes a euros primero
-    let valueInEuro = valueInYen / oneEuroIs.JPY;
-    // Convertimos euros a libras
-    let valueInPound = valueInEuro * oneEuroIs.GBP;
+    let valueInPound = valueInYen * (oneEuroIs.GBP / oneEuroIs.JPY);
     return valueInPound;
 }
 
